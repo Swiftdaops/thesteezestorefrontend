@@ -1,18 +1,12 @@
 [build]
-  base = "frontendobi3/frontendclient"
-  command = "npm run build"
-  publish = "frontendobi3/frontendclient/dist"
+  command = "npm ci && npm run build"
+  publish = "dist"
 
 # Optional: set environment via Netlify UI instead of committing secrets.
 # [build.environment]
 #   VITE_API_URL = "https://thesteezestoreserver1.onrender.com/api"
 
 # Ensure SPA routes fallback to index.html
-[[redirects]]
-  from = "/api/*"
-  to = "/api/:splat"
-  status = 200
-
 [[redirects]]
   from = "/*"
   to = "/index.html"

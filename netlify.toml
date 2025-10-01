@@ -8,6 +8,13 @@
 
 # Ensure SPA routes fallback to index.html
 [[redirects]]
+  from = "/api/*"
+  to = "https://thesteezestoreserver1.onrender.com/api/:splat"
+  status = 200
+  force = true
+  headers = { X-Forwarded-By = "Netlify" }
+
+[[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200

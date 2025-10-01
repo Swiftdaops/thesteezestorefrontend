@@ -31,15 +31,9 @@ export default function Footer() {
               "
             >
               <img
-                src="/src/assets/logo-light.svg"
+                src="https://res.cloudinary.com/dnitzkowt/image/upload/v1759360335/ChatGPT_Image_Sep_16__2025__12_40_26_PM-removebg-preview_1_r2xdkl.png"
                 alt="The Steeze Store Logo"
-                className="h-8 w-8 block dark:hidden select-none"
-                draggable="false"
-              />
-              <img
-                src="/src/assets/dark.png"
-                alt="The Steeze Store Logo"
-                className="h-8 w-8 hidden dark:block select-none"
+                className="h-8 w-8 block select-none object-contain"
                 draggable="false"
               />
             </div>

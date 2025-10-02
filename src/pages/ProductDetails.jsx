@@ -40,8 +40,8 @@ export default function ProductDetails(){
   }
 
   return (
-  <section className="grid sm:grid-cols-2 gap-6 text-black dark:text-white mt-20">
-      <div className="space-y-3">
+  <section className="grid sm:grid-cols-2 gap-6 text-stone-950 dark:text-white mt-20">
+      <div className="space-y-3 text-stone-950">
         {/* Main image with prev/next controls */}
         <div className="relative portrait-box glass">
           {img ? (

@@ -17,7 +17,7 @@ export default function AdminLogin(){
   }
 
   return (
-  <main className="max-w-md mx-auto px-4 py-10 text-black dark:text-white">
+  <main className="max-w-md mx-auto px-4 py-10 text-stone-950 dark:text-white">
       <Toaster richColors position="top-center" />
       <form onSubmit={submit} className="glass p-5 space-y-3">
         <h1 className="text-xl font-semibold">Admin Login</h1>

@@ -28,7 +28,7 @@ export default function AdminApiCheck(){
   }
 
   return (
-  <div className="p-4 rounded-2xl border text-black dark:text-white">
+  <div className="p-4 rounded-2xl border text-stone-950 dark:text-white">
       <div className="flex items-center justify-between mb-3">
         <h3 className="font-semibold">API Checker</h3>
         <Button onClick={run} disabled={running}>{running?'Checking…':'Run checks'}</Button>

@@ -16,7 +16,7 @@ export default function Footer() {
         relative mt-0 border-t
         border-stone-200/60 dark:border-stone-800/60
         bg-white/70 dark:bg-stone-950 backdrop-blur-xl
-        text-black dark:text-white
+  text-stone-950 dark:text-white
       "
     >
       <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12 grid grid-cols-1 md:grid-cols-3 gap-12">
@@ -39,7 +39,7 @@ export default function Footer() {
                 draggable="false"
               />
             </div>
-            <span className="font-bold text-xl text-black dark:text-white">
+            <span className="font-bold text-xl text-stone-950 dark:text-white">
               The Steeze Store
             </span>
           </div>
@@ -50,7 +50,7 @@ export default function Footer() {
 
         {/* Navigation */}
         <div className="flex flex-col gap-3">
-          <h4 className="font-semibold text-black dark:text-white mb-2">
+          <h4 className="font-semibold text-stone-950 dark:text-white mb-2">
             Quick Links
           </h4>
           {[
@@ -73,10 +73,10 @@ export default function Footer() {
 
         {/* Socials (WhatsApp, Instagram, TikTok only) */}
         <div className="flex flex-col gap-3">
-          <h4 className="font-semibold text-black dark:text-white mb-2">
+          <h4 className="font-semibold text-stone-950 dark:text-white mb-2">
             Connect With Us
           </h4>
-          <div className="flex gap-4 text-black dark:text-white">
+          <div className="flex gap-4 text-stone-950 dark:text-white">
             <motion.a
               href={buildWhatsAppRedirect('', '2349018318911')}
               target="_blank"

@@ -6,7 +6,7 @@ import ModelsSection from "@/components/ModelsSection.jsx";
 
 export default function Home(){
   return (
-    <div className="space-y-10 text-black dark:text-white">
+  <div className="space-y-10 text-stone-950 dark:text-white">
       <Hero />
       <NewDropSection />
       <ModelsSection />

@@ -36,7 +36,7 @@ function PageTransitionWrapper({ children }) {
 
 function Shell() {
   return (
-  <div className=" text-black dark:text-white">
+  <div className=" text-stone-950 dark:text-white">
       <Navbar />
       <main className="">
         <PageTransitionWrapper>
@@ -50,7 +50,7 @@ function Shell() {
 
 export default function App() {
   return (
-    <ThemeProvider defaultTheme="system" storageKey="vite-ui-theme">
+    <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
       <BrowserRouter>
         <Routes>
           <Route element={<Shell />}>

@@ -17,7 +17,7 @@ export default function Orders(){
   }
 
   return (
-  <section className="space-y-4 text-black dark:text-white">
+  <section className="space-y-4 text-stone-950 dark:text-white">
       <h1 className="text-xl font-bold">Orders</h1>
       <div className="space-y-3">
         {items.map(o=>(

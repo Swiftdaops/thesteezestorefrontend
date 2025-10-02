@@ -11,7 +11,7 @@ export default function Contact(){
     <section
       className="
         max-w-3xl mx-auto px-4 py-10 md:py-12
-        text-black dark:text-white
+  text-stone-950 dark:text-white
         pt-28 md:pt-32
         scroll-mt-28
       "

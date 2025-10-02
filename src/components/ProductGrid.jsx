@@ -39,11 +39,11 @@ export default function ProductGrid({ category, onCategories }){
   if (err) return <p className="text-sm text-red-600">{err}</p>
   if (!items) return <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
     {Array.from({length:6}).map((_,i)=>(
-      <div key={i} className="space-y-2">
+      <div key={i} className="space-y-2 text-stone-950">
         <div className="portrait-box bg-neutral-200 dark:bg-neutral-800 animate-pulse rounded-2xl" />
         <div className="h-3 w-24 bg-neutral-200 dark:bg-neutral-800 rounded animate-pulse" />
         <div className="h-3 w-16 bg-neutral-200 dark:bg-neutral-800 rounded animate-pulse" />
-      </div>
+      </div> 
     ))}
   </div>
 

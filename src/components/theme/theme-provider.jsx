@@ -3,17 +3,29 @@ import { ThemeProviderContext } from './theme-context'
 export { useTheme } from './theme-context' // (only if you choose Option B)
 
 export function ThemeProvider({ children, defaultTheme = 'system', storageKey = 'vite-ui-theme' }) {
-  const [theme, setTheme] = useState(() => localStorage.getItem(storageKey) || defaultTheme)
+  // Start from the provided defaultTheme instead of any previously saved value
+  const [theme, setTheme] = useState(defaultTheme)
+
+  // On first mount, if there is a stored preference, apply it
+  useEffect(() => {
+    try {
+      const saved = localStorage.getItem(storageKey)
+      if (saved && (saved === 'light' || saved === 'dark' || saved === 'system')) {
+        setTheme(saved)
+      }
+    } catch {}
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   useEffect(() => {
     const root = document.documentElement
     root.classList.remove('light', 'dark')
-    if (theme === 'system') {
-      const sys = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
-      root.classList.add(sys)
-    } else {
-      root.classList.add(theme)
+    let applied = theme
+    if (applied === 'system') {
+      applied = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
     }
+    root.classList.add(applied)
+    try { localStorage.setItem(storageKey, theme) } catch {}
   }, [theme])
 
   const value = {

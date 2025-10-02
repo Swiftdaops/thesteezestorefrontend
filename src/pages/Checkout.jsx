@@ -27,7 +27,7 @@ export default function Checkout(){
   }
 
   return (
-    <section className="space-y-4 text-black dark:text-white">
+  <section className="space-y-4 text-stone-950 dark:text-white">
       <h1 className="text-xl font-bold">Checkout</h1>
       {/* Order summary */}
       <div className="glass p-4 space-y-3">

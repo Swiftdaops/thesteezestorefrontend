@@ -46,7 +46,7 @@ export default function ProductCard({ product }){
   const sizes = (product.sizes?.length ? product.sizes : ['XL','XXL','XXXL'])
 
   return (
-  <div className="space-y-2 hover-float text-black dark:text-white">
+  <div className="space-y-2 hover-float text-stone-950 dark:text-white">
       <Link to={`/shop/${product._id}`}>
         <div className="portrait-box glass">
           {img ? <img src={img} alt={product.title} loading="lazy" width="1000" height="1500"/> :

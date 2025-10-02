@@ -90,7 +90,7 @@ export default function Products(){
   }
 
   return (
-  <section className="space-y-8 relative z-10 text-black dark:text-white">
+  <section className="space-y-8 relative z-10 text-stone-950 dark:text-white">
       <div className="flex items-center justify-between">
         <h1 className="text-2xl font-bold">Products</h1>
         <div className="text-sm text-stone-600 dark:text-stone-300">Create new items and manage existing ones</div>
@@ -259,9 +259,9 @@ function ProductCardAdmin({ product, onChange }){
   }
 
   return (
-  <div className="glass p-4 space-y-3 text-black dark:text-white">
+  <div className="glass p-4 space-y-3 text-stone-950 dark:text-white">
       <div className="relative">
-  <div className="grid grid-cols-3 gap-2 text-black dark:text-white">
+  <div className="grid grid-cols-3 gap-2 text-stone-950 dark:text-white">
           {product.images?.map(img=>(
             <button
               key={img.publicId}

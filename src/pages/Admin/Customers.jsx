@@ -117,7 +117,7 @@ export default function Customers(){
   const canNext = items.length === limit // heuristic without totalCount
 
   return (
-    <section className="space-y-4 text-black dark:text-white">
+  <section className="space-y-4 text-stone-950 dark:text-white">
       <div className="flex items-center justify-between">
         <h1 className="text-xl font-bold">Customers</h1>
         <div className="flex items-center gap-2">

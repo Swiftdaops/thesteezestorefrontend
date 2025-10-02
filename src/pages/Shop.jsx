@@ -15,7 +15,7 @@ export default function Shop(){
     if (category !== 'All' && !unique.includes(category)) setCategory('All')
   }
   return (
-    <section className="mx-auto space-y-6 text-black dark:text-white pt-24">
+  <section className="mx-auto space-y-6 text-stone-950 dark:text-white pt-24">
       <div className="space-y-1 text-center max-w-2xl mx-auto px-4">
         <h1 className="text-2xl sm:text-3xl font-bold">Welcome to our online Shop</h1>
         <p className="text-sm sm:text-base opacity-80">Style with ease.</p>

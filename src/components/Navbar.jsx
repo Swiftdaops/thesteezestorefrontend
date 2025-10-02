@@ -13,16 +13,7 @@ export default function Navbar() {
   const count = items.reduce((n, it) => n + (it.qty || 0), 0);
 
   return (
-    <nav
-      className="
-        fixed inset-x-0 top-0 z-50
-        border-b border-stone-200/70 dark:border-stone-800/70
-  bg-gradient-to-r from-amber-50/80 via-yellow-50/70 to-amber-100/70
-  dark:bg-stone-950/80
-        backdrop-blur-xl supports-[backdrop-filter]:backdrop-saturate-150
-        text-black dark:text-white
-      "
-    >
+    <nav className="fixed inset-x-0 top-0 nav-glass text-stone-950 dark:text-white">
       <div className="mx-auto max-w-7xl h-16 px-4 sm:px-6 lg:px-8 flex items-center">
         {/* Brand */}
         <Link to="/" className="flex items-center gap-3">

@@ -21,7 +21,7 @@ export default function Checkout(){
         items: items.map(i => ({ productId:i.id, title:i.title, price:i.price, qty:i.qty, size:i.size||'NOT_SURE' }))
       }).catch(()=>{})
     } finally {
-      const url = buildWhatsAppPaymentLink(name, total)
+  const url = buildWhatsAppPaymentLink(name, total, '2349018318911')
       setTimeout(()=>{ window.open(url, '_blank'); setAnim(false) }, 700)
     }
   }

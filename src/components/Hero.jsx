@@ -1,13 +1,16 @@
 import React from 'react'
+import { buildWhatsAppRedirect } from '@/lib/whatsapp'
 import { FaUndoAlt, FaLock, FaShippingFast, FaMapMarkerAlt } from 'react-icons/fa'
 
-const whatsappLink =
-  'https://wa.me/2349018318911?text=Hello,%20my%20name%20is%20....%20I%20would%20like%20to%20know%20where%20THESTEEZESTORE%20is%20located.'
+const whatsappLink = buildWhatsAppRedirect(
+  'Hello, my name is .... I would like to know where THESTEEZESTORE is located.',
+  '2349018318911'
+)
 
 export default function Hero() {
   return (
     <section className="text-stone-950 dark:text-stone-100 p-0 m-0">
-      <div className="relative w-screen min-h-[100dvh] min-h-[100svh] overflow-hidden p-0 m-0">
+  <div className="relative w-screen min-h-[100svh] overflow-hidden p-0 m-0">
         {/* Full-bleed video */}
         <video
           className="absolute inset-0 -z-0 w-full h-full object-cover pointer-events-none"

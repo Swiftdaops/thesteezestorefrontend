@@ -1,3 +1,23 @@
+const defaultApi = (import.meta.env?.VITE_API_URL || 'https://thesteezestoreserver1.onrender.com/api').replace(/\/$/, '')
+
+const getWhatsAppRedirectBase = () => {
+  if (typeof window !== 'undefined') {
+    const host = window.location.hostname || ''
+    // On Netlify domains, use same-origin proxy (/api)
+    if (host.endsWith('netlify.app')) return '/api'
+  }
+  return defaultApi
+}
+
+export const buildWhatsAppRedirect = (text = '', phone = '') => {
+  const base = getWhatsAppRedirectBase()
+  const query = new URLSearchParams()
+  if (text) query.set('text', text)
+  if (phone) query.set('to', String(phone))
+  const qs = query.toString()
+  return `${base}/whatsapp${qs ? `?${qs}` : ''}`
+}
+
 export const buildWhatsAppLink = (name, items = [], phone = '') => {
   const header = `Hi, my name is ${name}. I'd like to order:\n`
   const lines = items.map(i => {
@@ -6,25 +26,21 @@ export const buildWhatsAppLink = (name, items = [], phone = '') => {
   }).join('\n')
   const total = items.reduce((s,i)=>s+i.price*i.qty,0)
   const footer = `\nTotal: ₦${total.toLocaleString()}\n\nIf size is "Not sure", please help me pick the best fit.`
-  const text = encodeURIComponent(header + lines + footer)
-  const base = phone ? `https://wa.me/${phone}` : `https://wa.me/`
-  return `${base}?text=${text}`
+  const text = header + lines + footer
+  return buildWhatsAppRedirect(text, phone)
 }
 
 // Simple contact message (no cart information)
 export const buildWhatsAppContactLink = (name = 'Customer', message = '', phone = '') => {
   const header = `Hi my name is ${name}.\n`
   const body = message ? `${message}` : ''
-  const text = encodeURIComponent(`${header}${body}`)
-  const base = phone ? `https://wa.me/${phone}` : `https://wa.me/`
-  return `${base}?text=${text}`
+  const text = `${header}${body}`
+  return buildWhatsAppRedirect(text, phone)
 }
 
 // Simple payment intent message (no cart breakdown)
 export const buildWhatsAppPaymentLink = (name = 'Customer', amount = 0, phone = '') => {
   const naira = `₦${Number(amount||0).toLocaleString()}`
   const msg = `Hi my name is ${name}. I want to make a payment of ${naira} for my order.`
-  const text = encodeURIComponent(msg)
-  const base = phone ? `https://wa.me/${phone}` : `https://wa.me/`
-  return `${base}?text=${text}`
+  return buildWhatsAppRedirect(msg, phone)
 }

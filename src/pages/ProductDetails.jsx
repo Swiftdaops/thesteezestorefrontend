@@ -4,7 +4,7 @@ import { api } from '@/lib/api'
 import { useCart } from '@/lib/store'
 import { buildCloudinaryUrl } from '@/lib/cloudinary'
 import { toast } from 'sonner'
-
+import CartDrawer from '@/components/CartDrawer'
 export default function ProductDetails(){
   const { id } = useParams()
   const [p, setP] = useState(null)
@@ -105,6 +105,7 @@ export default function ProductDetails(){
           <button onClick={addToCart} className="px-4 py-2 rounded-xl bg-black text-white dark:bg-white dark:text-black tap">Add to cart</button>
           <button onClick={like} className="underline opacity-70">Like</button>
         </div>
+        <CartDrawer />
       </div>
     </section>
   )

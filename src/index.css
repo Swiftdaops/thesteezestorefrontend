@@ -5,7 +5,7 @@ html, body, #root { height: 100%; }
 * { -webkit-tap-highlight-color: transparent; }
 body {
   font-family: "Noto Sans JP", system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
-  color: hsl(var(--foreground, 0 0% 0%));
+  color: hsl(var(--foreground, 0  0% 0%));
 }
 .dark body { color: hsl(var(--foreground, 0 0% 100%)); }
 

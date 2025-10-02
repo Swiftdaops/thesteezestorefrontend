@@ -1,3 +1,4 @@
+import { buildWhatsAppRedirect } from '@/lib/whatsapp'
 import React from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
@@ -19,9 +20,29 @@ const item = {
 };
 
 export default function NewDropSection() {
+  const dropImageUrl = "https://res.cloudinary.com/dnitzkowt/image/upload/v1759301696/steezestore/products/file_qzstmf.jpg";
+  const fallbackImageUrl = "https://res.cloudinary.com/dnitzkowt/image/upload/v1759360335/ChatGPT_Image_Sep_16__2025__12_40_26_PM-removebg-preview_1_r2xdkl.png";
+  const price = 35000;
+  const displayPrice = `₦${Number(price).toLocaleString()}`;
+
+  const getStoredName = () => {
+    if (typeof window === 'undefined') return ''
+    try {
+      const keys = ['customerName', 'name', 'customer_name', 'latestName']
+      for (const k of keys) {
+        const v = window.localStorage?.getItem(k)
+        if (v && v.trim()) return v.trim()
+      }
+    } catch {}
+    return ''
+  }
+  const customerName = getStoredName()
+  const prefill = customerName
+    ? `Hello my name is ${customerName}. I want to buy the drop.`
+    : 'Hi, I want to buy the drop.'
+  const buyLink = buildWhatsAppRedirect(prefill, '2349018318911')
   return (
     <section className="relative py-0 md:py-6 lg:py-10 text-stone-950 dark:text-stone-100 bg-transparent dark:bg-stone-950">
-      {/* Full width on mobile/tablet; constrained on lg+ */}
       <div className="max-w-none lg:max-w-7xl mx-auto px-0 lg:px-8">
         <motion.div
           variants={container}
@@ -32,17 +53,12 @@ export default function NewDropSection() {
             grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 items-center
             p-4 sm:p-6 md:p-8 lg:p-10
             backdrop-blur-xl
-            /* Edge-to-edge look on mobile/tablet */
             rounded-none border-0
-            /* Constrain/beautify on large screens */
             lg:rounded-2xl lg:border lg:border-stone-200/60 dark:lg:border-stone-800/60
-            /* Plain backgrounds (no gradients) */
             bg-gray-50/90 dark:bg-stone-950
             relative overflow-hidden
           "
         >
-          {/* Removed gradient overlay for plain background */}
-
           {/* LEFT: Copy + CTAs */}
           <div className="relative px-4 sm:px-6 md:px-2 lg:px-0">
             <motion.div
@@ -64,6 +80,10 @@ export default function NewDropSection() {
               elevate your <span className="font-semibold">Steeze</span> on and off camera.
             </motion.p>
 
+            <motion.p variants={item} className="mt-2 text-base font-semibold">
+              Price: {displayPrice}
+            </motion.p>
+
             <motion.ul variants={item} className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
               <motion.li variants={item} className="flex items-center gap-2 text-stone-700 dark:text-stone-300">
                 <FaTruckFast className="shrink-0" /> Same Day Delivery within Ifite, Awka.
@@ -81,8 +101,10 @@ export default function NewDropSection() {
 
             <motion.div variants={item} className="mt-7 flex flex-wrap items-center gap-3">
               <motion.div whileHover={{ y: -1 }} whileTap={{ scale: 0.98 }}>
-                <Link
-                  to="/shop"
+                <a
+                  href={buyLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="
                     inline-flex items-center justify-center rounded-xl px-5 py-3 font-semibold
                     text-white bg-stone-900 dark:bg-stone-900
@@ -90,7 +112,7 @@ export default function NewDropSection() {
                   "
                 >
                   Buy the Drop <FaFire className="ml-2" />
-                </Link>
+                </a>
               </motion.div>
 
               <motion.div whileHover={{ y: -1 }} whileTap={{ scale: 0.98 }}>
@@ -100,8 +122,8 @@ export default function NewDropSection() {
                     inline-flex items-center justify-center rounded-xl px-5 py-3 font-semibold
                     ring-1 ring-stone-300/80 dark:ring-stone-700/70
                     text-stone-900 dark:text-stone-100
-          bg-white/60 dark:bg-stone-900/60 backdrop-blur
-          hover:bg-white/80 dark:hover:bg-stone-900/80 transition
+                    bg-white/60 dark:bg-stone-900/60 backdrop-blur
+                    hover:bg-white/80 dark:hover:bg-stone-900/80 transition
                   "
                 >
                   Explore TheSteezeStore
@@ -121,25 +143,21 @@ export default function NewDropSection() {
             </motion.div>
           </div>
 
-          {/* RIGHT: New Drop Images */}
+          {/* RIGHT: New Drop Image */}
           <motion.div variants={item} className="relative px-0">
-            {/* Light mode image */}
             <img
-              src="https://res.cloudinary.com/dnitzkowt/image/upload/v1759301696/steezestore/products/file_qzstmf.jpg"
-              alt="Steeze Stone-Washed Drop — Light"
-              className="block dark:hidden w-full max-w-none mx-auto rounded-none lg:rounded-2xl shadow-none lg:shadow-[0_20px_60px_rgba(0,0,0,0.15)]"
+              src={dropImageUrl}
+              alt="Steeze Stone-Washed Drop"
+              className="block w-full max-w-none mx-auto rounded-none lg:rounded-2xl shadow-none lg:shadow-[0_20px_60px_rgba(0,0,0,0.15)]"
               draggable="false"
               loading="lazy"
+              decoding="async"
+              onError={(e) => {
+                if (e.currentTarget.src !== fallbackImageUrl) {
+                  e.currentTarget.src = fallbackImageUrl;
+                }
+              }}
             />
-            {/* Dark mode image */}
-            <img
-              src="https://res.cloudinary.com/dnitzkowt/image/upload/v1759301696/steezestore/products/file_e1u5j8.jpg"
-              alt="Steeze Stone-Washed Drop — Dark"
-              className="hidden dark:block w-full max-w-none mx-auto rounded-none lg:rounded-2xl shadow-none lg:shadow-[0_20px_60px_rgba(0,0,0,0.55)]"
-              draggable="false"
-              loading="lazy"
-            />
-
             <div
               className="
                 absolute -bottom-4 left-1/2 -translate-x-1/2

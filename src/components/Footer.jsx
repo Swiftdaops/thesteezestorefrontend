@@ -1,7 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { FaFacebook, FaInstagram, FaTwitter, FaTiktok } from "react-icons/fa";
+import { FaInstagram, FaWhatsapp } from "react-icons/fa";
+import { SiTiktok } from "react-icons/si";
+import { buildWhatsAppRedirect } from '@/lib/whatsapp'
 
 export default function Footer() {
   return (
@@ -69,30 +71,48 @@ export default function Footer() {
           ))}
         </div>
 
-        {/* Socials */}
+        {/* Socials (WhatsApp, Instagram, TikTok only) */}
         <div className="flex flex-col gap-3">
           <h4 className="font-semibold text-black dark:text-white mb-2">
             Connect With Us
           </h4>
           <div className="flex gap-4 text-black dark:text-white">
-            {[
-              { icon: FaInstagram, link: "https://instagram.com" },
-              { icon: FaFacebook, link: "https://facebook.com" },
-              { icon: FaTwitter, link: "https://twitter.com" },
-              { icon: FaTiktok, link: "https://tiktok.com" },
-            ].map(({ icon: Icon, link }, idx) => (
-              <motion.a
-                key={idx}
-                href={link}
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{ scale: 1.2, rotate: 3 }}
-                whileTap={{ scale: 0.9 }}
-                className="p-2 rounded-full bg-white/70 dark:bg-neutral-800/70 ring-1 ring-stone-200/70 dark:ring-stone-700/70"
-              >
-                <Icon size={18} />
-              </motion.a>
-            ))}
+            <motion.a
+              href={buildWhatsAppRedirect('', '2349018318911')}
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.2, rotate: 3 }}
+              whileTap={{ scale: 0.9 }}
+              className="p-2 rounded-full bg-white/70 dark:bg-neutral-800/70 ring-1 ring-stone-200/70 dark:ring-stone-700/70"
+              aria-label="WhatsApp"
+              title="WhatsApp"
+            >
+              <FaWhatsapp size={18} />
+            </motion.a>
+            <motion.a
+              href="https://instagram.com/steezeupnow"
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.2, rotate: 3 }}
+              whileTap={{ scale: 0.9 }}
+              className="p-2 rounded-full bg-white/70 dark:bg-neutral-800/70 ring-1 ring-stone-200/70 dark:ring-stone-700/70"
+              aria-label="Instagram"
+              title="Instagram"
+            >
+              <FaInstagram size={18} />
+            </motion.a>
+            <motion.a
+              href="https://tiktok.com/@steezethe"
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.2, rotate: 3 }}
+              whileTap={{ scale: 0.9 }}
+              className="p-2 rounded-full bg-white/70 dark:bg-neutral-800/70 ring-1 ring-stone-200/70 dark:ring-stone-700/70"
+              aria-label="TikTok"
+              title="TikTok"
+            >
+              <SiTiktok size={18} />
+            </motion.a>
           </div>
         </div>
       </div>

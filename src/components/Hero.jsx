@@ -35,7 +35,7 @@ export default function Hero() {
 
               <div>
                 <h3 className="text-sm md:text-base">
-                  Store Location - NOS14 KASMATIC PLAZA, IFITE, AWAKA, ANAMBRA.
+                  Store Location - NOS15 KASMATIC PLAZA, IFITE, AWAKA, ANAMBRA.
                 </h3>
                 <div className="flex justify-center items-center gap-3 py-4">
                   <a

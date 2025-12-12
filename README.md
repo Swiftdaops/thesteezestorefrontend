@@ -1,16 +1,82 @@
-# React + Vite
+The Steeze Store — Fashion E-Commerce Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, conversion-focused clothing store frontend built with Next.js, Tailwind CSS, ShadCN UI, and a 3-click WhatsApp checkout flow.
 
-Currently, two official plugins are available:
+Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+The Steeze Store is a design-forward ecommerce frontend created specifically for clothing and fashion brands that want a fast, stylish, and frictionless online shopping experience.
 
-## React Compiler
+This project features a 3-click purchase flow, real-time order logging through the admin backend, smooth animations, dark mode, and an elegant product browsing experience—optimized for mobile and desktop users.
 
-The React Compiler is not enabled on this template. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+This repository contains the full frontend implementation built using modern React tooling and a scalable design system.
 
-## Expanding the ESLint configuration
+Core Features
+1. Beautiful Shopping Experience
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+High-quality product displays using SwiperJS
+
+Modern dark/light mode
+
+Responsive layout for mobile, tablet, and desktop
+
+Smooth transitions powered by Framer Motion
+
+2. 3-Click WhatsApp Checkout
+
+A signature purchase flow built for maximum conversions:
+
+Customer selects a product
+
+Clicks “Order on WhatsApp”
+
+WhatsApp opens with a pre-filled message, and the admin instantly receives the order in the dashboard
+
+This approach removes long forms, increases trust, and mirrors how buyers already shop with fashion vendors.
+
+3. Admin-Friendly Architecture
+
+Inventory displayed cleanly and consistently
+
+Product cards dynamically rendered
+
+Works seamlessly with backend order logging
+
+Designed to help clothing brands reply faster and close more orders
+
+Technology Stack
+
+Built with a focus on speed, maintainability, and DX.
+
+Frontend Technologies
+
+Next.js (App Router)
+
+React (JSX Only)
+
+Tailwind CSS
+
+ShadCN UI
+
+SwiperJS
+
+Framer Motion
+
+Zustand (state management)
+
+Zod (validation for form inputs)
+
+Media & Integrations
+
+Cloudinary — product image delivery
+
+WhatsApp API — instant checkout
+
+Backend (Connected Services)
+
+Although not included in this repo, the full system integrates with:
+
+Node.js / Express admin backend
+
+Multer (image upload handling)
+
+MongoDB (product + orders database)

@@ -1,8 +1,8 @@
 # 🌟 The Steeze Store — Fashion E-Commerce Frontend
 
-> A modern, conversion-focused clothing store frontend built with **Next.js**, **Tailwind CSS**, and a signature **3-Click WhatsApp Checkout** flow.
+> A modern, conversion-focused clothing store frontend built with **React**, **Vite**, **Tailwind CSS**, and a signature **3-Click WhatsApp Checkout** flow.
 
-![Project Banner](https://placehold.co/1200x400/101010/FFFFFF?text=The+Steeze+Store) 
+![Project Banner](https://placehold.co/1200x400/101010/FFFFFF?text=The+Steeze+Store)
 *(Replace this link with a screenshot of your actual homepage)*
 
 ---
@@ -21,7 +21,7 @@ This repository contains the complete frontend implementation, built using moder
 | :--- | :--- | :--- |
 | **🛍️ Beautiful Shopping Experience** | High-quality product displays, SwiperJS carousels, Dark/Light mode, and smooth Framer Motion transitions. | `SwiperJS` `Framer Motion` |
 | **📲 3-Click WhatsApp Checkout** | Our signature flow. Customers click "Order", and WhatsApp opens with a pre-filled message. No long forms. | `WhatsApp API` |
-| **⚡ Admin-Friendly Architecture** | Clean inventory management UI designed for seamless integration with backend order logging. | `Next.js` `ShadCN UI` |
+| **⚡ Admin-Friendly Architecture** | Clean inventory management UI designed for seamless integration with backend order logging. | `React` `ShadCN UI` |
 
 ### 🚀 **The "3-Click" Flow**
 
@@ -39,8 +39,9 @@ This approach removes friction, increases trust, and mirrors how buyers already 
 Built with a focus on speed, maintainability, and Developer Experience (DX).
 
 ### Frontend
-- **Next.js (App Router):** Server-side rendering and routing.
-- **React (JSX Only):** Component-based UI.
+- **Vite:** Next-generation frontend tooling for fast builds.
+- **React:** Component-based UI library.
+- **React Router:** Client-side routing management.
 - **Tailwind CSS:** Utility-first styling.
 - **ShadCN UI:** Accessible, re-usable components.
 - **Zustand:** Lightweight state management.
@@ -72,18 +73,20 @@ Built with a focus on speed, maintainability, and Developer Experience (DX).
     ```
 
 3.  **Configure Environment**
-    Create a `.env.local` file in the root directory:
+    Create a `.env` file in the root directory.
+    *(Note: React/Vite uses `VITE_` prefix, not `NEXT_PUBLIC_`)*
+    
     ```env
-    NEXT_PUBLIC_SITE_NAME="The Steeze Store"
-    NEXT_PUBLIC_WHATSAPP_NUMBER="1234567890" # Your business number (No + symbol)
-    NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME="your_cloud_name"
+    VITE_SITE_NAME="The Steeze Store"
+    VITE_WHATSAPP_NUMBER="1234567890" # Your business number (No + symbol)
+    VITE_CLOUDINARY_CLOUD_NAME="your_cloud_name"
     ```
 
 4.  **Run Development Server**
     ```bash
     npm run dev
     ```
-    Visit [http://localhost:3000](http://localhost:3000).
+    Visit [http://localhost:5173](http://localhost:5173) (or the port shown in your terminal).
 
 ---
 

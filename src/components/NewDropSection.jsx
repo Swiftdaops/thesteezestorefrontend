@@ -22,7 +22,7 @@ const item = {
 export default function NewDropSection() {
   const dropImageUrl = "https://res.cloudinary.com/dnitzkowt/image/upload/v1759301696/steezestore/products/file_qzstmf.jpg";
   const fallbackImageUrl = "https://res.cloudinary.com/dnitzkowt/image/upload/v1759360335/ChatGPT_Image_Sep_16__2025__12_40_26_PM-removebg-preview_1_r2xdkl.png";
-  const price = 35000;
+  const price = 30000;
   const displayPrice = `₦${Number(price).toLocaleString()}`;
 
   const getStoredName = () => {

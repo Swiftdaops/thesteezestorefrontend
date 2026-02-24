@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import { buildWhatsAppRedirect } from '@/lib/whatsapp'
 import { FaUndoAlt, FaLock, FaShippingFast, FaMapMarkerAlt } from 'react-icons/fa'
 
@@ -8,16 +8,35 @@ const whatsappLink = buildWhatsAppRedirect(
 )
 
 export default function Hero() {
+  const videoRef = useRef(null)
+
+  useEffect(() => {
+    try {
+      const v = videoRef.current
+      if (!v) return
+      // Ensure inline playback attributes for iOS
+      v.setAttribute('playsinline', '')
+      v.setAttribute('webkit-playsinline', '')
+      // Ensure muted before attempting to play (required for autoplay on many mobile browsers)
+      v.muted = true
+      const p = v.play()
+      if (p && typeof p.then === 'function') p.catch(() => {})
+    } catch (e) {
+      // no-op
+    }
+  }, [])
   return (
     <section className="text-stone-950 dark:text-stone-100 p-0 m-0">
   <div className="relative w-screen min-h-[100svh] overflow-hidden p-0 m-0">
         {/* Full-bleed video */}
         <video
+          ref={videoRef}
           className="absolute inset-0 -z-0 w-full h-full object-cover pointer-events-none"
           src="https://res.cloudinary.com/dnitzkowt/video/upload/v1759317802/steeze_eleoxe.mov"
           autoPlay
           loop
           muted
+          defaultMuted
           playsInline
           aria-hidden="true"
         />

@@ -3,18 +3,10 @@ import axios from 'axios'
 // Choose base URL:
 // - On Netlify (production), route via same-origin /api so cookies are first-party (works on Safari mobile)
 // - Locally, use VITE_API_URL (e.g., http://localhost:5000/api)
-let baseURL = import.meta.env.VITE_API_URL
-try {
-  if (typeof window !== 'undefined') {
-    const host = window.location.hostname || ''
-    if (host.endsWith('netlify.app')) {
-      baseURL = '/api'
-    }
-  }
-} catch {}
+let baseURL = import.meta.env.VITE_API_URL || ''
 
 export const api = axios.create({
-  baseURL: baseURL || '/api',
+  baseURL: baseURL || '',
   withCredentials: true,
 })
 

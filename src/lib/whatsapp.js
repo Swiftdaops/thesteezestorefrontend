@@ -1,13 +1,6 @@
-const defaultApi = (import.meta.env?.VITE_API_URL || 'https://thesteezestoreserver1.onrender.com/api').replace(/\/$/, '')
+const defaultApi = (import.meta.env?.VITE_API_URL || '').replace(/\/$/, '')
 
-const getWhatsAppRedirectBase = () => {
-  if (typeof window !== 'undefined') {
-    const host = window.location.hostname || ''
-    // On Netlify domains, use same-origin proxy (/api)
-    if (host.endsWith('netlify.app')) return '/api'
-  }
-  return defaultApi
-}
+const getWhatsAppRedirectBase = () => defaultApi
 
 export const buildWhatsAppRedirect = (text = '', phone = '') => {
   const base = getWhatsAppRedirectBase()

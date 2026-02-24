@@ -36,6 +36,7 @@ export default function Hero() {
           autoPlay
           loop
           muted
+          defaultMuted
           playsInline
           aria-hidden="true"
         />
